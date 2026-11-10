@@ -159,7 +159,7 @@ DISABLE_TELEMETRY=1 npx skills add evenfrost/helpwright -g -a claude-code -s hel
 
 These commands install across projects. Review the destination and any existing installation before confirming; avoid adding a second copy if you already use the Helpwright plugin. Omit `-g` for installation in the current project. The environment prefix disables the third-party CLI's telemetry and security-audit requests; in PowerShell, set `$env:DISABLE_TELEMETRY = "1"` before running the `npx` command.
 
-Skills.sh documents [automatic directory listing through installation telemetry](https://skills.sh/docs/faq), with no separate manual submission. These telemetry-disabled commands do not contribute to that listing. Helpwright's public directory listing is not yet verified; installation from a public repository does not require a directory listing. See [distribution options and current status](docs/distribution.md).
+**[Browse Helpwright on Skills.sh](https://skills.sh/evenfrost/helpwright/helpwright).** Its directory page was verified on November 10, 2026. Skills.sh documents [automatic listing through installation telemetry](https://skills.sh/docs/faq); the telemetry-disabled commands above do not contribute to indexing. Direct installation works independently of directory search. See [distribution checks and audit labels](docs/distribution.md) for current limits.
 
 In Codex, find `helpwright` in `/skills` or the `$` selector, then submit `$helpwright` with your ticket. In Claude Code, use `/helpwright` with your ticket. Restart the host if the Skill does not appear. See [Codex's Skill discovery guidance](https://learn.chatgpt.com/docs/build-skills) and [Claude Code's Skills guide](https://code.claude.com/docs/en/skills).
 
