@@ -2,7 +2,7 @@
 
 The [manual release workflow](../.github/workflows/release.yml) builds the existing two distributions and attaches them, plus `SHA256SUMS`, to a **draft** GitHub Release. It never publishes a release automatically. Pushing a commit or tag does not trigger it.
 
-The owner selected `evenfrost/helpwright` for this clean repository, after renaming the original private repository to `helpwright-private`. The new destination and its release remain pending verification. The original private release is historical evidence, not a release of this repository. See [publication provenance](publication-provenance.md).
+This clean repository and its [v0.2.0 release](https://github.com/evenfrost/helpwright/releases/tag/v0.2.0) are public. The original repository was renamed and remains private. The initial clean release points to root commit `f25a9024413dee608c4bda69200ffcfd1b844e59`; its workflow, downloaded assets, checksums, and anonymous access were verified on November 10, 2026. The original private release remains separate historical evidence. See [publication provenance](publication-provenance.md) and [distribution checks](distribution.md).
 
 ## Prepare a draft
 
@@ -34,7 +34,7 @@ On macOS, use `shasum -a 256 -c SHA256SUMS`. The standalone archive must contain
 
 Confirm the tag still identifies the reviewed release commit, inspect release notes and assets, and obtain the owner's publication decision before choosing **Publish release**. Keep a prerelease marked as such when appropriate. No workflow dispatch, tag creation, release creation, publication, visibility change, or marketplace submission is implied by preparing these files.
 
-After a real release is published, verify its downloads without credentials. The README's intended v0.2.0 release and asset links must use the confirmed new destination and remain marked pending until verified. Future versions require the same checks. Versioned download links use `/releases/download/<tag>/<asset-name>`; `/releases/latest/download/<asset-name>` requires that exact asset name on the latest published release. Our ZIP names include versions, so a latest link containing an older version will break when the latest version changes. Use the Releases page unless stable aliases are deliberately added and tested.
+After a release is published, verify its downloads without credentials. The README links the verified public v0.2.0 release and versioned assets. Future versions require the same checks before updating those links. Versioned download links use `/releases/download/<tag>/<asset-name>`; `/releases/latest/download/<asset-name>` requires that exact asset name on the latest published release. Our ZIP names include versions, so a latest link containing an older version will break when the latest version changes. Use the Releases page unless stable aliases are deliberately added and tested.
 
 ## Installation evidence
 

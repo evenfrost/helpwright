@@ -115,7 +115,7 @@ Helpwright is open source. It runs as a Skill inside your existing AI assistant.
 
 There is no Helpwright backend or subscription to sign up for.
 
-**Public launch is pending.** The owner selected `evenfrost/helpwright` for this clean repository. Its new release downloads and anonymous access are not yet verified. The steps below describe the intended installation once the public release is ready.
+**[Download Helpwright v0.2.0](https://github.com/evenfrost/helpwright/releases/tag/v0.2.0).** The source and release downloads are public. No GitHub account is needed.
 
 ### Install without coding in Claude
 
@@ -135,7 +135,7 @@ You can verify the ZIP against the release's [SHA256SUMS](https://github.com/eve
 
 The released ZIP was accepted through Claude chat's replacement flow on November 8, 2026; all three synthetic smoke chats showed a host-rendered **Loaded skill → helpwright** indicator. The chats preserved core grounding but also showed verbosity and unsolicited-advice limitations. This was a small smoke test, not a full evaluation or a comparison proving improvement. [Read the test evidence](docs/experiments/2026-11-08-claude-release-smoke.md).
 
-First-time installation in a fresh account was not tested. On November 10, downloads from the original private repository passed their checksums and contained the same Skill bytes as this source. Downloads from this clean repository remain pending. [Publication provenance](docs/publication-provenance.md) explains the distinction.
+First-time installation in a fresh Claude account was not tested. On November 10, both public release ZIPs were downloaded without credentials, passed their checksums, and matched the clean release source. Their Skill bytes match the previously tested private release; the new archives have their own checksums. [Publication provenance](docs/publication-provenance.md) explains the distinction.
 
 </details>
 
@@ -143,7 +143,7 @@ First-time installation in a fresh account was not tested. On November 10, downl
 
 [Skills.sh](https://skills.sh/) is Vercel's directory for discovering agent Skills. Its [Skills CLI](https://github.com/vercel-labs/skills) installs Helpwright from this GitHub repository into supported local agents. It does not upload Helpwright to your Claude chat account; use the steps above for that.
 
-If you already use a terminal, you need Node.js **22.20 or later** and Git. The commands below become usable once the clean repository is public. No Helpwright clone or build is needed on your part. Run the command for your agent:
+If you already use a terminal, you need Node.js **22.20 or later** and Git. No GitHub account, Helpwright clone, or build is needed. Run the command for your agent:
 
 **Codex**
 
@@ -163,7 +163,7 @@ Skills.sh documents [automatic directory listing through installation telemetry]
 
 In Codex, find `helpwright` in `/skills` or the `$` selector, then submit `$helpwright` with your ticket. In Claude Code, use `/helpwright` with your ticket. Restart the host if the Skill does not appear. See [Codex's Skill discovery guidance](https://learn.chatgpt.com/docs/build-skills) and [Claude Code's Skills guide](https://code.claude.com/docs/en/skills).
 
-The repository installation route was checked with Skills CLI 1.7.6 in a disposable home for both agent targets. Matching installed files verifies installation; confirm the host's selector separately. This check does not establish runtime activation or support-quality improvement on either host.
+The public installation route was checked on November 10 with Skills CLI **1.8.0** in disposable environments without GitHub credentials for both agent targets. Each installed only `SKILL.md` and `LICENSE`, matching the source bytes. Matching files verifies installation; confirm the host's selector separately. This check does not establish runtime activation or support-quality improvement on either host.
 
 ### Ask a local AI agent to install it
 

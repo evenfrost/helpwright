@@ -1,25 +1,26 @@
 # Distribution options and readiness
 
-Prepared November 10, 2026. This clean source snapshot preserves Helpwright's existing Skill and packaging. Its owner-approved destination is `evenfrost/helpwright`; public source and release access remain pending verification. [Publication provenance](publication-provenance.md) distinguishes the clean repository from historical private-source evidence.
+Verified November 10, 2026. The clean repository `evenfrost/helpwright` and its `v0.2.0` release are public. [Publication provenance](publication-provenance.md) distinguishes this source and release from historical private-source evidence.
 
 | Route | User experience | Verified evidence and limits |
 | --- | --- | --- |
 | Claude chat, web or desktop | Download the standalone ZIP, upload it under Customize → Skills, enable it, then paste a ticket. No terminal or local build. | The November 8 replacement upload and three host-rendered activation indicators are recorded in the [smoke test](experiments/2026-11-08-claude-release-smoke.md). First-time installation in a fresh account remains untested; behavior had limitations. |
-| Skills.sh and Skills CLI | Discover Skills in Vercel's directory; use the CLI to install from GitHub into Codex or Claude Code. Requires Node.js and Git, or a local agent able to install on the user's behalf. | The existing `skills/helpwright/SKILL.md` layout is supported. Prior installation checks used CLI 1.7.6 in disposable homes. Anonymous installation and Helpwright's public directory listing remain unverified. |
+| Skills.sh and Skills CLI | Use the CLI to install from public GitHub into Codex or Claude Code. Requires Node.js and Git, or a local agent able to install on the user's behalf. | CLI 1.8.0 installed matching source bytes for both targets without GitHub credentials, in disposable environments with telemetry disabled. Host activation was not tested. The Skills.sh directory page still reports Helpwright as unavailable. |
 | ChatGPT and other clients | Follow the host's current Skill or plugin installation controls. | No new installation or activation test was performed for these clients. A public repository or Agent Plugin ZIP does not establish an official directory listing or a universal upload interface. |
 
 Use the [README installation guide](../README.md#install) for the actual steps. Keep the existing two distributions: the canonical Agent Plugin and the standalone Skill ZIP, both sourced unchanged from `skills/helpwright/`. No new installer, account, integration, or service is required for Helpwright's basic workflow.
 
-## What is ready
+## What was verified
 
-- The original source repository remains private. It is not the publication destination; none of its Git objects, remote refs, or workflow logs were copied.
-- Fresh authenticated downloads of the original private `v0.2.0` release passed `SHA256SUMS`. Their complete entry lists and bytes matched its tagged source; the Skill also matches this snapshot. The clean repository needs its own verified release assets and checksums. Historical archive checksums do not identify new builds.
+- The public repository has a distinct GitHub ID (`1453203988`) and begins at root commit `f25a9024413dee608c4bda69200ffcfd1b844e59`, with no parents. The original repository retains ID `1328038483` and remains private; its Git objects, refs, and workflow logs were not imported. Anonymous requests could not read the private archive or the old source commit through the new repository.
+- The clean `v0.2.0` tag identifies that root. [Release workflow 42904139242](https://github.com/evenfrost/helpwright/actions/runs/42904139242) completed successfully, including **93/93 deterministic tests**. The new release ID is `440926408`, published at `2026-11-10T21:23:02Z`.
+- Credential-free HTTP requests returned the repository page, release page, raw Skill, both ZIPs, and `SHA256SUMS`. The ZIPs passed the downloaded checksums, matched the verified draft bytes, and contained exactly the tagged source files. Historical archive checksums do not identify these new builds.
 - Claude's current documentation supports ZIP upload with code execution enabled. Organization permissions may restrict availability. The README puts this route first for users without programming experience.
 - The Skills CLI discovers `skills/<name>/SKILL.md`; Helpwright needs no extra directory manifest. Upstream currently declares Node.js 22.20 or later. A directory listing is separate from source installation.
 
-## What remains before public launch
+## Directory discovery and limits
 
-Use the owner-approved `evenfrost/helpwright` destination and follow the [public-launch checklist](releasing.md#public-launch-and-directory-discovery). Public source access, anonymous release downloads, and anonymous CLI installation must be observed after publication. Helpwright is not claimed to be listed on Skills.sh or in an official host directory.
+Public source access, release downloads, and both CLI installation targets have been verified. On the same date, the Skills.sh detail page displayed “helpwright isn’t available in this repository,” despite an HTTP 200 response. HTTP success alone does not establish a listing. Helpwright is not claimed to be listed in that directory or in an official host directory. See the [launch verification checklist](releasing.md#public-launch-and-directory-discovery) for future releases.
 
 Skills.sh documents automatic listing through CLI installation telemetry. No manual submission is required by that process. The README disables telemetry and security-audit requests for installation; those commands do not contribute to directory indexing. Enabling telemetry for a genuine installation is a separate owner decision. Do not manufacture popularity or promise an indexing time.
 
