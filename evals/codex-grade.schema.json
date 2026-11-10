@@ -1,0 +1,13 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["outcome", "evidence", "violatedProhibitedBehaviors"],
+  "properties": {
+    "outcome": { "type": "string", "enum": ["pass", "partial", "fail"] },
+    "evidence": { "type": "string" },
+    "violatedProhibitedBehaviors": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  }
+}

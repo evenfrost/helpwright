@@ -1,0 +1,20 @@
+{
+  "name": "helpwright-local",
+  "interface": {
+    "displayName": "Helpwright Local"
+  },
+  "plugins": [
+    {
+      "name": "helpwright",
+      "source": {
+        "source": "local",
+        "path": "./plugins/helpwright"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

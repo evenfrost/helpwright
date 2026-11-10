@@ -1,0 +1,10 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["askedRequiredQuestion", "confidence", "evidence"],
+  "properties": {
+    "askedRequiredQuestion": { "type": ["boolean", "null"] },
+    "confidence": { "enum": ["high", "low"] },
+    "evidence": { "type": "string", "minLength": 1 }
+  }
+}

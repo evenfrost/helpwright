@@ -1,0 +1,6 @@
+tmp/
+dist/
+node_modules/
+
+evals/results/
+/plugins/

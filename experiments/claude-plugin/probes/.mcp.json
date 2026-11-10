@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "helpwright-compatibility-probe": {
+      "command": "node",
+      "args": [
+        "${CLAUDE_PLUGIN_ROOT}/scripts/runtime-probe.mjs",
+        "mcp"
+      ]
+    }
+  }
+}

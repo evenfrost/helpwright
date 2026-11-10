@@ -1,0 +1,14 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "helpwright",
+  "version": "0.2.0",
+  "description": "Portable customer-support judgment for AI assistants.",
+  "author": {
+    "name": "Aliaksei Kislou",
+    "url": "https://github.com/evenfrost"
+  },
+  "homepage": "https://github.com/evenfrost/helpwright#readme",
+  "repository": "https://github.com/evenfrost/helpwright",
+  "license": "MIT",
+  "keywords": ["agent-plugins", "agent-skills", "customer-support"]
+}

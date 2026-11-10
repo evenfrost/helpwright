@@ -1,0 +1,34 @@
+{
+  "name": "helpwright",
+  "version": "0.2.0",
+  "packageManager": "pnpm@12.4.2",
+  "description": "Portable customer-support judgment distributed as an Agent Plugin and standalone Skill.",
+  "private": true,
+  "author": "Aliaksei Kislou",
+  "license": "MIT",
+  "homepage": "https://github.com/evenfrost/helpwright#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/evenfrost/helpwright.git"
+  },
+  "bugs": {
+    "url": "https://github.com/evenfrost/helpwright/issues"
+  },
+  "keywords": [
+    "agent-skills",
+    "customer-support",
+    "ai",
+    "claude",
+    "chatgpt"
+  ],
+  "scripts": {
+    "test": "node --test",
+    "build": "node scripts/build.mjs",
+    "unpack": "pnpm build && node scripts/unpack.mjs",
+    "eval:semantic-operational-claims": "node scripts/run-semantic-operational-verifier-eval.mjs",
+    "eval:codex": "node scripts/run-codex-behavioral-evals.mjs"
+  },
+  "devDependencies": {
+    "ajv": "^8.17.1"
+  }
+}

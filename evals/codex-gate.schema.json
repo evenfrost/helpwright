@@ -1,0 +1,9 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["askedRequiredQuestion", "evidence"],
+  "properties": {
+    "askedRequiredQuestion": { "type": "boolean" },
+    "evidence": { "type": "string" }
+  }
+}

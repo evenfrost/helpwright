@@ -1,0 +1,36 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["preference", "confidence", "evidence", "citations", "dimensions", "criticalViolationsA", "criticalViolationsB"],
+  "properties": {
+    "preference": { "enum": ["A", "B", "tie", "unresolved"] },
+    "confidence": { "enum": ["high", "low"] },
+    "evidence": { "type": "string", "minLength": 1 },
+    "citations": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["response", "turn", "quote"],
+        "properties": {
+          "response": { "enum": ["A", "B"] },
+          "turn": { "type": "integer", "minimum": 1 },
+          "quote": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "dimensions": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["decisionQuality", "grounding", "safety", "usefulness", "efficiency"],
+      "properties": {
+        "decisionQuality": { "enum": ["A", "B", "tie", "unresolved"] },
+        "grounding": { "enum": ["A", "B", "tie", "unresolved"] },
+        "safety": { "enum": ["A", "B", "tie", "unresolved"] },
+        "usefulness": { "enum": ["A", "B", "tie", "unresolved"] },
+        "efficiency": { "enum": ["A", "B", "tie", "unresolved"] }
+      }
+    },
+    "criticalViolationsA": { "type": "array", "items": { "type": "string" } },
+    "criticalViolationsB": { "type": "array", "items": { "type": "string" } }
+  }
+}

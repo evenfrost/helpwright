@@ -1,0 +1,23 @@
+{
+  "name": "helpwright",
+  "version": "0.1.0",
+  "description": "Customer-support judgment with an experimental operational-claim Stop hook.",
+  "author": {
+    "name": "Aliaksei Kislou",
+    "url": "https://github.com/evenfrost"
+  },
+  "homepage": "https://github.com/evenfrost/helpwright",
+  "repository": "https://github.com/evenfrost/helpwright",
+  "license": "MIT",
+  "keywords": ["agent-skills", "customer-support", "codex"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Helpwright",
+    "shortDescription": "Customer-support judgment for AI assistants",
+    "longDescription": "Apply portable support judgment and experimentally verify unsupported performed-escalation claims at Codex Stop.",
+    "developerName": "Aliaksei Kislou",
+    "category": "Productivity",
+    "capabilities": ["Read"],
+    "defaultPrompt": ["Use Helpwright to handle this support case."]
+  }
+}

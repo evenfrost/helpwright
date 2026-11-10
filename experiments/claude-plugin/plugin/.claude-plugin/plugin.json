@@ -1,0 +1,10 @@
+{
+  "name": "helpwright",
+  "displayName": "Helpwright (Compatibility Experiment)",
+  "version": "0.0.1",
+  "description": "Experimental Claude plugin packaging for the portable Helpwright customer-support Skill.",
+  "author": {
+    "name": "Aliaksei Kislou"
+  },
+  "license": "MIT"
+}

@@ -1,0 +1,73 @@
+name: Prepare draft release
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Existing release tag matching package.json (for example v0.2.0)
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: release-${{ inputs.tag }}
+  cancel-in-progress: false
+
+jobs:
+  draft:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: refs/tags/${{ inputs.tag }}
+          persist-credentials: false
+
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: 24.11.0
+
+      - name: Check release version
+        env:
+          RELEASE_TAG: ${{ inputs.tag }}
+        run: |
+          node --input-type=module <<'JS'
+          import { readFileSync } from 'node:fs';
+          const pkg = JSON.parse(readFileSync('package.json'));
+          const plugin = JSON.parse(readFileSync('plugin.json'));
+          if (process.env.RELEASE_TAG !== `v${pkg.version}` || plugin.version !== pkg.version) {
+            throw new Error('Release tag, package.json and plugin.json versions must match');
+          }
+          JS
+
+      - uses: pnpm/action-setup@f40ffcd9367d9f12939873eb1018b921a783ffaa # v4
+        # Uses the exact packageManager version in the tagged package.json.
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm unpack
+      - run: pnpm test
+      - run: pnpm build
+
+      - name: Prepare checksums
+        env:
+          RELEASE_TAG: ${{ inputs.tag }}
+        working-directory: dist
+        run: |
+          sha256sum "helpwright-agent-plugin-${RELEASE_TAG}.zip" \
+            "helpwright-agent-skill-${RELEASE_TAG}.zip" > SHA256SUMS
+          sha256sum --check SHA256SUMS
+
+      - name: Create draft with both packages
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          RELEASE_TAG: ${{ inputs.tag }}
+        run: |
+          gh release create "$RELEASE_TAG" --verify-tag --draft \
+            --title "Helpwright ${RELEASE_TAG}" \
+            --notes "Standalone Skill and canonical Agent Plugin. Verify SHA256SUMS before installation. Publication requires maintainer review." \
+            "dist/helpwright-agent-plugin-${RELEASE_TAG}.zip" \
+            "dist/helpwright-agent-skill-${RELEASE_TAG}.zip" \
+            dist/SHA256SUMS
